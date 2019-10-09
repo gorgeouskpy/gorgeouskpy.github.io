@@ -27,7 +27,7 @@ iframe{
 .logo{
     color:rgb(149, 194, 245);
     text-align: center;
-    margin-left: 70px;
+    margin-left: 100px;
     margin-top: 10px;
     font-size: 20px;
     float: left;
@@ -43,9 +43,9 @@ iframe{
     box-shadow: 0,0,5px,grey;
 }
 .box1{
-    margin-left: 5px;
+    margin: 5px;
     margin-top: 55px;
-    width: 300px;
+    width: 25%;
     height: 1800px;
     overflow: hidden;
     background-color: burlywood;
@@ -53,20 +53,19 @@ iframe{
     box-shadow: 0,0,5px,grey;
 }
 .box2{
-    margin-left: 5px;
+    margin: 5px;
+    margin-right: 12px;
     margin-top: 55px;
-    width: 1105px;
+    width: 73%;
+    float: right;
+    position: relative;
+    top:-104.5%;
     height: 1800px;
     background-color: burlywood;
     border-radius: 10px;
-    float: bottom;
-    position:relative;
-    top: -1855px;
-    left: 310px;
 }
 a{
     text-decoration: none;
-    font-style: bold;
 }
 .logo > a:visited{
     color:rgb(149, 194, 245);
@@ -88,15 +87,14 @@ a{
 }
 .textl{
     text-align: center;
-    text-indent: 2;
-    box-orient: vertical;
     padding: 20px;
     padding-top: 30px;
+    height: 0;
     margin:0;
     font-size: 16px;
-    position:relative;
     z-index: 88;
-    color: chocolate;
+    float: top;
+    overflow-y: auto;
 }
 .pclassl{
     color: rgb(85, 63, 47);
