@@ -59,6 +59,7 @@ iframe{
     width: 73%;
     float: right;
     position: relative;
+    overflow: hidden;
     top:-104.5%;
     height: 1800px;
     background-color: burlywood;
@@ -95,7 +96,27 @@ a{
     z-index: 88;
     float: top;
     overflow-y: auto;
-}
-.pclassl{
     color: rgb(85, 63, 47);
+}
+.textr{
+    text-align: left;
+    color: rgb(85, 63, 47);
+    padding : 100px;
+    padding-top: 60px;
+    height: 0;
+    margin: 0;
+    text-indent: 2em;    
+    position: relative;
+}
+.textr  a{
+    color:rgb(54, 80, 112);
+}
+h1{
+    height: 80px;
+}
+h2{
+    height: 40px;
+}
+p{
+    height: 100px;
 }
