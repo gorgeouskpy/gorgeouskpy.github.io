@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Generator" content="MutiplicationTab">
+        <meta name="Author" content="">
+        <meta name="Keywords" content="九九乘法表">
+        <meta name="Description" content="This is a Mutiplication Tab">
+    </head>
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        //这里是注释！
+        var a=1; //注释可以跟在语句后面
+        /*
+        程序功能： 打印九九乘法表
+        建立日期： 2019年10月10日
+        */
+       labell:for(var i =1; i<=9; i++){
+            document.write("<br>");
+            for(var j=1; j<=9; j++){
+                if(j>i){
+                    continue labell;
+                }
+                document.write(i+"x"+j+"="+i*j+"&nbsp; ");
+            }
+        }
+        </script>
+        //-->
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>循环语句js</title>
+    </head>
+    <body>
+        <p>单击下面的按钮，就会一直生成语句，直到i=99.</p>
+        <button onclick="myFunction()">单击这里</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction(){
+                var x="", i=0;
+                while (i<99){
+                    x=x + "该数字为：" + i + "<br>";
+                    i++;
+                }
+            }
+            document.getElementById("demo").innerHTML=x;
+        </script>
+    </body>
+</html>
