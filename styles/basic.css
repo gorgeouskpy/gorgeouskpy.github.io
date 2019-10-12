@@ -57,11 +57,10 @@ iframe{
     margin-right: 12px;
     margin-top: 55px;
     width: 73%;
-    float: right;
-    position: relative;
-    overflow: hidden;
-    top:-104.5%;
     height: 1800px;
+    position: absolute;
+    left: 25.5%;
+    top: 0;
     background-color: burlywood;
     border-radius: 10px;
 }
@@ -113,10 +112,13 @@ a{
 }
 h1{
     height: 80px;
+    overflow: hidden;
 }
 h2{
     height: 40px;
+    overflow: hidden;
 }
 p{
     height: 100px;
+    overflow: hidden;
 }

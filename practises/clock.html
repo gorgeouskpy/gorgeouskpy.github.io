@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>在网页中插入时钟</title>
+    </head>
+    <script>
+            function startTime(){
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                //在小于10的数字前加上0
+                m = chkTime(m);
+                s = chkTime(s);
+                document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+                setTimeout(function(){startTime()},500);
+            }
+            function chkTime(i){
+                if (i<10){
+                    i = "0" + i;
+                }
+                return i;
+            }
+            </script>
+    <body onload="startTime()">
+        <div id="txt"></div>
+    </body>
+</html>
