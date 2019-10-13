@@ -96,6 +96,7 @@ a{
     float: top;
     overflow-y: auto;
     color: rgb(85, 63, 47);
+    overflow: hidden;
 }
 .textr{
     text-align: left;
@@ -110,15 +111,15 @@ a{
 .textr  a{
     color:rgb(54, 80, 112);
 }
-h1{
+.textr > h1{
     height: 80px;
     overflow: hidden;
 }
-h2{
+.textr > h2{
     height: 40px;
     overflow: hidden;
 }
-p{
+.textr > p{
     height: 100px;
     overflow: hidden;
 }

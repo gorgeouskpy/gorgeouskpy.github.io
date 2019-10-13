@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>布尔（逻辑）对象练习</title>
+    </head>
+    <body>
+        <p id="demo">单击获取颜色按钮，如果布尔值为<em>true</em>则显示green，否则显示red</p>
+        <button onclick="myFunction()">获取颜色</button>
+        <script>
+        Boolean.prototype.myColor=function(){
+            if (this.valueOf()==true){
+                this.color="green";
+            }
+            else{
+                this.color="red";
+            }
+        }
+        function myFunction(){
+            var a = new Boolean(1);
+            a.myColor();
+            var x = document.getElementById("demo");
+            x.innerHTML=a.color;
+        }
+        </script>
+    </body>
+</html>
