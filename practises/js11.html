@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>创建对象的常用方式</title>
+        <script>
+            //工厂模式创建对象
+            var lev1=function(){
+                return "kpy";
+            };
+            function Gogogo(){
+                var People = new Object();
+                People.name = "kpy";
+                People,age = "18";
+                People.sex = "male";
+                People.lev = lev;
+                return People;
+            };
+            var x = Gogogo();
+            alert (x.name);
+            alert (x.lev());
+            //自定义构造函数方式
+            function Gogogox(){
+                this.name = "kpy";
+                this.age = "18";
+                this.lev = lev;
+            };
+            var xx = new Gogogox();
+            alert(xx.name);
+            alert(xx.lev());
+            //原型模式创建对象
+            function Gogogoy(){
+                Gogogoy.prototype.name = "kpy";
+                Gogogoy.prototype.age = "18";
+                Gogogoy.prototype.lev = lev;
+            }
+            var xxx = new Gogogoy();
+            //原型模式和构造原型模式混合方法
+            /*平时推荐使用这种方法*/
+            function Gogogoz(){                                   //建议将所有属性不是方法（lev）的属性定义在函数之内
+                this.name = "kpy";                                  
+                this.age = "18";
+            }
+            Gogogoz.prototype.lev = function(){                   //将属性为方法的属性通过prototype在函数之外定义
+                return this.name = lev;    
+            }
+        </script>
+    </head>
+</html>

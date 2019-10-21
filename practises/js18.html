@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>创建一个节点</title>
+    </head>
+    <body>
+        <ul id= "myList">
+            <li>咖啡☕️</li>
+            <li>红茶☕️</li>
+        </ul>
+        <ul id = "myListx">
+            <li>Beer🍺</li>
+            <li>Whisky🥃</li>
+        </ul>
+        <p id ="demo">单击按钮将项目添加如列表中，从而创建一个节点</p>
+        <button onclick="myFunction()">创建节点</button>
+        <button onclick="myFunctionx()">插入节点</button>
+        <button onclick="myFunctionxy()">删除节点</button>
+        <button onclick="myFunctionxyz()">复制节点</button>
+        <p>
+            <b>注意⚠️！</b>
+            <br>
+            首先创建一个节点<br>
+            然后创建一个文本节点<br>
+            然后将文本节点添加到LI节点上<br>
+            最后将节点添加到列表中<br>
+        </p>
+        <script>
+            function myFunction(){
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode("果汁🍹");
+                node.appendChild(textnode);
+                document.getElementById("myList").appendChild(node);
+            }
+            function myFunctionx(){
+                var node = document.getElementById("myListx").lastChild;
+                var list = document.getElementById("myList");
+                list.insertBefore(node,list.childNodes[0]);//把node插入到list前面
+            }
+            function myFunctionxy(){
+                var list = document.getElementById("myList");
+                list.removeChild(list.childNodes[0]);
+            }
+            function myFunctionxyz(){
+                var itm = document.getElementById("myListx").lastChild;
+                var cln = itm.cloneNode(true);
+                document.getElementById("myList").appendChild(cln);
+            }
+        </script>
+    </body>
+</html>

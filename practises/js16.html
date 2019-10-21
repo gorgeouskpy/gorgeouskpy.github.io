@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>闭包与类</title>
+        <script>
+        function closure(){
+            var str = "This is a str in fn closure!";
+            return (function() {//闭包返回一个函数，让外部函数可以引用str局部变量，实现将局部变量保存在内存中
+                alert (str);
+            })
+        }
+        </script>
+    </head>
+</html>

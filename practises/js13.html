@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>自定义数组属性和方法</title>
+        <script>
+            Array.prototype.Ucase = function(){         //利用prototype给Array的原型添加Ucase方法
+            for (i=0; i<this.length; i++ )
+            {
+                this[i] = this[i].toUpperCase;
+            }
+            function myFunction(){
+                var fruits = ["Banana","Apple","Pineapple","Charry"];
+                fruits.Ucase();
+                var x = document.getElementById("demo");
+                x.innerHTML=fruits;
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <button onclick="myFunction()">按下以创建数组，并将其转化为大写</button>
+        <p id="demo"></p>
+    </body>
+</html>

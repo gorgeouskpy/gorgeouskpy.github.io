@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>制作二级菜单</title>
+        <style>
+            body{
+                background-color: #eed0e0;
+            }
+            #navigation{
+                width: 200px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #navigation > ul > li {
+                border-bottom: 1px solid #ad9f9f;
+            }
+            #navigation > ul > li > a{
+                display: block;
+                padding: 5px 5px 5px 0.5em;
+                text-decoration: none;
+                border-left: 12px solid #711111;
+            }
+            #navigation > ul > li > a:link,#navigation > ul > li > a:visited{
+                background-color: #c11136;
+                color: #ffffff;
+            }
+            #navigation > ul > li > a:hover{
+                background-color: #880020;
+                color: #ff0000;
+            }
+            h1{
+                color: red;
+                background-color: #49ff01;
+                text-align: center;
+                padding: 20px;
+            }
+            #navigation ul li ul{
+                margin: 0px;
+                padding: 0px;
+            }
+            #navigation ul li ul li {
+                border-top: 1px solid #ed9f9f;
+            }
+            #navigation ul li ul li a{
+                display: block;
+                padding: 3px 3px 3px 0.5em;
+                text-decoration: none;
+                border-left: 28px solid #a71f1f;
+                border-right: 1px solid #711515;
+            }
+            #navigation ul li ul li a:link, #navigation ul li ul li a:visited{
+                background-color: #e55075;
+                color: #ffffff;
+            }
+            #navigation ul li ul li a:hover{
+                background-color: #c2425d;
+                color: #ffff00;
+            }
+            #navigation ul li ul.myHide{    /*隐藏子菜单*/
+                display: none;
+            }
+            #navigation ul li ul.myShow{    /*显示子菜单*/
+                display: block;
+            }
+        </style>
+    </head>
+    <script>
+        function  change(){
+            var SecondDiv = this.parentNode.getElementByTagName("ul")[0];
+            if(SecondDiv.className == "myHide")
+            SecondDiv.className = "myShow";
+            else 
+            SecondDiv.className = "myHide";
+        }
+        window.onload = function () {
+            var UI = document.getElementById("listUL");
+            var aLi = UI.childNodes;
+            var A;
+            for(var i=0 ; i<aLi; i++)
+            {
+                if(aLi[i].tagName == "LI" && aLI[i].getElementByTagName("ul").length){
+                    A = aLi[i].firstChild;
+                    A.onclick = change;
+                }
+            }
+        }
+    </script>
+    <body>
+        <div id="navigation">
+            <ul id="listUL">
+                <li><a href="#">个人中心</a>
+                    <ul>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">个人资料</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我的主页</a>
+                    <ul>
+                        <li><a href="#">日志</a></li>
+                        <li><a href="#">相册</a></li>
+                        <li><a href="#">状态</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">留言板</a></li>
+                <li><a href="#">应用中心</a>
+                    <ul>
+                        <li><a href="#">游戏🎮</a></li>
+                        <li><a href="#">音乐🎵</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">更多</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

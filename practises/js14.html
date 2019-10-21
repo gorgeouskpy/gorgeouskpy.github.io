@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>什么是函数</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+        <p id="demox"></p>
+        <script>
+        var myFunction = function (a,b){
+            return a*b;
+        }
+        /*
+        var myFuntion = new Funtion(){}
+        */
+        document.getElementById("demo").innerHTML = myFunction(5,9);//调用函数并引入参数“作为一个函数”
+        var myObject ;//定义一个对象来调用函数
+        myObject = myFunction.call(myObject,30,6);//return 180;
+        document.write("<br>");
+        document.getElementById("demox").innerHTML = myObject;
+        </script>
+    </body>
+</html>

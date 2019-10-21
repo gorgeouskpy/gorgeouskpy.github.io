@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>制作二级关联菜单</title>
+        <script>
+        var aCity = new Array();    //定义一个数组用于存放省份的名字
+
+        aCity[0] = new Array();     //分别定义三个数组元素为数组用于存放地区名字
+        aCity[1] = new Array();
+        aCity[2] = new Array();
+        aCity[3] = new Array();
+
+        aCity[0][0] ="--请选择--" 
+        aCity[1][0] ="--请选择--" 
+        aCity[1][1] ="郑州市" 
+        aCity[1][2] ="洛阳市" 
+        aCity[1][3] ="开封市" 
+        aCity[1][4] ="南阳市" 
+        aCity[1][5] ="周口市" 
+        aCity[2][0] ="--请选择--" 
+        aCity[2][1] ="石家庄市" 
+        aCity[2][2] ="秦皇岛市" 
+        aCity[3][0] ="--请选择--" 
+        aCity[3][1] ="杭州市" 
+        aCity[3][2] ="嘉兴市" 
+        aCity[3][3] ="温州市" 
+        aCity[3][4] ="秦皇岛市" 
+
+        function ChangeCity(){
+            var i,iProvinceIndex;
+            iProvinceIndex=document.frm.optProvince.selectedIndex;
+            iCityCount=0;
+            while (aCity[iProvinceIndex][iCityCount]!=0)
+            iCityCount ++;//计算所选省份城市的数量
+            document.frm.optCity.length=iCityCount;//改变下拉菜单的选项数
+            document.frm.optCity.focus();
+        }
+        </script>
+    </head>
+    <body onfocus="ChangeCity()">
+    <h3>请选择省份和城市</h3>
+    <p>省份：
+        <select name="optProvince" size="1" onchange="ChangeCity()">
+    <form name="optProvince" size="1" onchange="ChangeCity()">
+    <option>--请选择--</option>
+    <option>河南省</option>
+    <option>河北省</option>
+    <option>浙江省</option>
+    </select>
+    </form>
+    </p>
+    <p>城市：
+        <select name = "optCity" size="1">
+            <option>--请选择--</option>
+        </select>
+    </p>
+    </body>
+</html>
