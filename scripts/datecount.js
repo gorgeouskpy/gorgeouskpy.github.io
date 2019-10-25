@@ -1,3 +1,7 @@
+/*
+功能：用于实现在页面输出一个计时器，which记录了从建站到用户访问两时间点的之间一段时间段。
+日期：2019/10/25 KPY first release
+*/ 
 var daycount = function(){
     var myDay,myHour,myHourx,myMinute,myMinutex,mySecondx,mySecond;
     var today = new Date();
