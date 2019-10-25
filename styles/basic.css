@@ -6,6 +6,7 @@
 }
 body{
     background-color: antiquewhite;
+    overflow-x: hidden;
 }
 .toolbar{
     height: 50px;
@@ -16,6 +17,14 @@ body{
     position:fixed;
     float: initial;
     z-index: 10;
+}
+.timer{
+    width: 25%;
+    z-index: 99;
+    position:fixed;
+    top: 96.6%;
+    text-align: center;
+    color: rgba(83, 68, 29,0.6);
 }
 iframe{
     position:fixed;
