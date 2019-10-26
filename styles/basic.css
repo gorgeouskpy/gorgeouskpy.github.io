@@ -122,14 +122,20 @@ a{
     color:rgb(54, 80, 112);
 }
 .textr > h1{
-    height: 80px;
-    overflow: hidden;
+    position: static;
+    height: auto;
+    line-height: 100px;
+    top:0;
 }
 .textr > h2{
-    height: 40px;
-    overflow: hidden;
+    position: static;
+    line-height: 80px;
+    height: auto;
+    top:0;
 }
 .textr > p{
-    height: 100px;
-    overflow: hidden;
+    position: static;
+    line-height: 25px;
+    height: auto;
+    top:0;
 }
