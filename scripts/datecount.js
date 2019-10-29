@@ -45,7 +45,9 @@ var daycount = function(){
     var output = document.getElementById("timer");
     var timeroutput = "已陪伴了您:" +myDay + "天" +myHour + "时" + myMinute +"分"+ mySecond +"秒";
     output.innerHTML=timeroutput;
+}
+function printf(){
     setInterval(() => {
         daycount();
-    }, 500);
+    }, 300);
 }

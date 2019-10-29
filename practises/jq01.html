@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>jQuery练习01</title>
+    <script src="/scripts/jquery.js">
+        var items =document.getElementsByTagName("p");//获取网页中所有p元素
+        for(var i=0;i<items.length;i++){//由于获取的是数组对象，因此需要把它循环出来
+            items[i].onclick = function(){
+                alert("这是测试一的效果，它可以将所有的p标签加上此效果！");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>🌰一，给网页中所有p元素加上onclick事件</p>
+    <p>看见了吗，这是个🌰</p>
+    <p>🌰二：将指定表格隔行变色</p>
+    <tbody>
+        <tr><td>第一行</td><td>第一行</td></tr>
+        <tr><td>第二行</td><td>第二行</td></tr>
+        <tr><td>第三行</td><td>第三行</td></tr>
+        <tr><td>第四行</td><td>第四行</td></tr>
+        <tr><td>第五行</td><td>第五行</td></tr>
+    </tbody>
+</body>
