@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>品牌列表效果</title>
+    <script src="/scripts/jquery.js"></script>
+    <script>
+        function HideShow(){
+            var $category = $("ul li:gt(5):not(:last)");
+            $category.hide;
+        }
+        function getdom(){ //获取dom元素
+            var $li = $("ul li:eq(1)");//获取ul元素里的第 二 个节点(因为数组是以0作为起点的)
+            var li_txt = $li.text();//文本取得
+            var li_attr = $li.attr("title");//属性取得
+            alert(li_txt);
+        }
+        function adddom(){
+            var $li = $("<li title='boluo'>大菠萝🍍</li>");//创建一个li元素对象：根据传入的html标记字符串，创建一个dom对象，并将dom对象包装成jq对象然后返回
+            //无论$(html)中的html代码多么复杂，都可以使用相同的方式创建
+            $("ul").append($li);
+        }
+        function insert(){
+            $("ul").prepend("<li>小菠萝🍍</li>");
+        }
+        function deldom(){
+            $("ul li:eq(3)").remove();//利用remove方法移除元素第四个节点
+            $("ul li:eq(2)").detach();//利用detach方法去除元素节点，但不会将jQuery元素删除，对应的事件，存留的数据都会留下来
+        }
+        function copydom(){
+            var $copythis = $("ul li:eq(1)");//append和appendTo的区别就是主客颠倒了
+            $copythis.clone(true).appendTo("ul");//如果想要复制的新元素中含有行为,在clone中填true值
+        }
+        function warpdom(){
+            $("ul li").wrapAll("<b></b>");//使用warpAll方法加醋所有选中的元素
+            $("ul").wrapInner("<em></em>");//使用warpInner方法可以加醋选中元素的所有子元素
+        }
+    </script>
+</head>
+<body>
+    <div class="SubCategoryBox">
+        <ul>
+            <li><a href="#">佳能</a><i>30440</i></li>
+            <li><a href="#">索尼</a><i>25773</i></li>
+            <li><a href="#">三星</a><i>32354</i></li>
+            <li><a href="#">尼康</a><i>23434</i></li>
+            <li><a href="#">松下</a><i>23411</i></li>
+            <li><a href="#">卡西欧</a><i>11123</i></li>
+            <li><a href="#">富士</a><i>7645</i></li>
+            <li><a href="#">柯达</a><i>8846</i></li>
+            <li><a href="#">宾得</a><i>4554</i></li>
+            <li><a href="#">理光</a><i>2345</i></li>
+            <li><a href="#">奥林巴斯</a><i>2332</i></li>
+            <li><a href="#">明基</a><i>233</i></li>
+            <li><a href="#">爱国者</a><i>333</i></li>
+            <li><a href="#">其他品牌相机</a><i>12343</i></li>
+        </ul>
+    </div>
+    <button onclick="HideShow()">单击以隐藏</button>
+    <button onclick="getdom()">单击以提示</button>
+    <button onclick="adddom()">单击以添加</button>
+    <button onclick="insert()">单击以插入</button>
+    <button onclick="deldom()">单击以删除</button>
+    <button onclick="copydom()">单击以复制</button>
+    <button onclick="warpdom()">单击以加醋</button>
+    <p id="output">结果在这里显示</p>
+</body>
+</html>

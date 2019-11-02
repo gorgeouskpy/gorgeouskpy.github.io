@@ -13,7 +13,9 @@ function AllOnclickInJS(){
 }
 //用JQ实现以上功能
 function AllOnclickInJQ(){
-
+    $("p").click(function(){
+        //doing something
+    })
 }
 
 /*
@@ -30,4 +32,34 @@ function TabChangeColorInJS(){
             trs[i].style.color="blue";
         }
     }
+}
+//用JQ实现以上功能
+function TabChangeColorInJQ(){
+    $("#tb tbody tr:even").css("backgroundColor","#888");
+}
+
+/*
+练习三
+程序：对多选框进行操作，输出选中的多选框的个数；
+*/
+
+//用JS实现以上功能
+function NumOfChkInJS(){
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+        var arrays = new Array();
+        var items = document.getElementsByTagName("check");
+        for(var i=0; i<items.length;i++){
+            if(items[i].checked){//检查是否选中
+                arrays.push(items[i].value);//把符合条件的数据添加到数组中
+            }
+        }
+    }
+}
+//用JQ实现以上功能
+function NumOfChkInJQ(){
+    $("#btn").click(function(){
+        var items = $("input[name='check']:checked");
+        alert("I've done something");
+    })
 }
