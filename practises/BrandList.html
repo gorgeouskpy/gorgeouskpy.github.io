@@ -34,25 +34,88 @@
             $("ul li").wrapAll("<b></b>");//使用warpAll方法加醋所有选中的元素
             $("ul").wrapInner("<em></em>");//使用warpInner方法可以加醋选中元素的所有子元素
         }
+        /////////////////////属性操作//////////////////////
+        function getattr(){
+            var $para = $("p");
+            var p_id = $para.attr("id");//获取节点的属性id
+        }
+        function setattr(){
+            var $para = $("p");
+            $para.attr("id","myID");//设置单个属性值
+            $para.attr({"title":"myTitle","name":"Myname"});//一次同时为元素设置多个属性值
+        }
+        function setcss(){
+            var $li = $("ul li");
+            $li.attr("class","low");//低调模式
+        }
+        function addcss(){
+            var $li = $("ul li");
+            $li.addClass("cssadded");
+        }
+        function delcss(){
+            var $body = $("ul li");
+            $body.removeClass();
+        }
+        function chgele(){
+            var p_html = $("p").html();//利用html方法获得!p元素内部的!html
+            $("#output").text(p_html);
+        }
+        function chgtxt(){
+            var p_text = $("p").text();
+            $("#output").text(p_text);
+        }
+        $(function(){
+            var x=20,y=10;
+            $("a").mouseover(function(){
+            var mytip= this.title;
+            $(".mytip").text(mytip);
+            var $mytip = $(".mytip");
+            $("body").append($mytip);
+            $mytip.css({
+                "top": (e.height+y) + "px",
+                "left": (e.width+x) + "px"
+            }).show("fast");
+            })
+        })
     </script>
+    <style>
+        button{
+            border-radius: 9px;
+            box-shadow: cadetblue 0,0,6px;
+            background-color:cadetblue;
+            color: cornsilk;
+        }
+        .high{
+            color:bisque;
+            font-size: 20px;
+        }
+        .low{
+            color:blueviolet;
+            font-size:10px;
+        }
+        .cssadded{
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="SubCategoryBox">
         <ul>
-            <li><a href="#">佳能</a><i>30440</i></li>
-            <li><a href="#">索尼</a><i>25773</i></li>
-            <li><a href="#">三星</a><i>32354</i></li>
-            <li><a href="#">尼康</a><i>23434</i></li>
-            <li><a href="#">松下</a><i>23411</i></li>
-            <li><a href="#">卡西欧</a><i>11123</i></li>
-            <li><a href="#">富士</a><i>7645</i></li>
-            <li><a href="#">柯达</a><i>8846</i></li>
-            <li><a href="#">宾得</a><i>4554</i></li>
-            <li><a href="#">理光</a><i>2345</i></li>
-            <li><a href="#">奥林巴斯</a><i>2332</i></li>
-            <li><a href="#">明基</a><i>233</i></li>
-            <li><a href="#">爱国者</a><i>333</i></li>
-            <li><a href="#">其他品牌相机</a><i>12343</i></li>
+            <li><a href="#" title="Canon">佳能</a><i>30440</i></li>
+            <li><a href="#" title="Sony">索尼</a><i>25773</i></li>
+            <li><a href="#" title="Sansung">三星</a><i>32354</i></li>
+            <li><a href="#" title="Nikon">尼康</a><i>2343</i></li>
+            <li><a href="#" title="UnderPine">松下</a><i>23411</i></li>
+            <li><a href="#" title="Casio">卡西欧</a><i>11123</i></li>
+            <li><a href="#" title="Fuji">富士</a><i>7645</i></li>
+            <li><a href="#" title="Kodak">柯达</a><i>8846</i></li>
+            <li><a href="#" title="Binder">宾得</a><i>4554</i></li>
+            <li><a href="#" title="Ligon">理光</a><i>2345</i></li>
+            <li><a href="#" title="Alinmpus">奥林巴斯</a><i>2332</i></li>
+            <li><a href="#" title="Minkey">明基</a><i>233</i></li>
+            <li><a href="#" title="Ailgo">爱国者</a><i>333</i></li>
+            <li><a href="#" title="Other">其他品牌相机</a><i>12343</i></li>
         </ul>
     </div>
     <button onclick="HideShow()">单击以隐藏</button>
@@ -61,7 +124,14 @@
     <button onclick="insert()">单击以插入</button>
     <button onclick="deldom()">单击以删除</button>
     <button onclick="copydom()">单击以复制</button>
-    <button onclick="warpdom()">单击以加醋</button>
-    <p id="output">结果在这里显示</p>
+    <button onclick="warpdom()">单击以包裹</button>
+    <br>
+    <button onclick="setcss()">单击改变样式</button>
+    <button onclick="addcss()">单击增加样式</button>
+    <button onclick="delcss()">单击删除样式</button>
+    <p id="output">结果在<b>这里</b>显示</p>
+    <button onclick="chgele()">🍍</button>
+    <button onclick="chgtxt()">🍎</button>
 </body>
 </html>
+<div class=txtip>this.myTip</div>
