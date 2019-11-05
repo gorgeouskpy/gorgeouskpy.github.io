@@ -24,6 +24,7 @@ body{
     position:fixed;
     top: 96.6%;
     text-align: center;
+    text-shadow: 1px,1px,10px,rgba(83, 68, 29,0.9);
     color: rgba(83, 68, 29,0.6);
 }
 iframe{
@@ -57,7 +58,7 @@ iframe{
     margin-top: 55px;
     width: 25%;
     height: 89.2%;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: burlywood;
     border-radius: 10px;
     box-shadow: 0,0,5px,grey;
