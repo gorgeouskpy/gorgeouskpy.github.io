@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>滚动菜单</title>
+        <meta charset="utf-8">
+        <style>
+        body{
+            background-color: burlywood;
+        }
+        .outer{
+            background-color: teal;
+            border: 4px solid violet;
+            padding: 50px;
+            border-radius: 10px;
+        }
+        .headtitle > .titlex{
+            font-size: 20px;
+            font-style: italic;
+            padding-left: 35px;
+        }
+        img{
+            height:100px;
+            width:100px;
+        }
+        ul{
+            white-space: nowrap;
+            list-style: none;
+        }
+        ul li{
+            height: 150px;
+            width: 150px;
+            float: left;
+        }
+        ul li p{
+            line-height: 10px;
+        }
+        ul li em{
+            line-height: 10px;
+        }
+        </style>
+        <script src="/scripts/jquery.js"></script>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <div class="outer">
+            <div class="headtitle">
+                <span class="titlex">专辑展示</span>
+                <span class="btn">
+                    <button class="prev"><</button>
+                    <button class="next">></button>
+                </span>
+                <em><a href="#">更多</a></em>
+            </div>
+            <div class="content">
+                <ul>
+                    <li><a href="#"><img src="/images/IMG_5867.JPG" alt="Don Diablo"><br>On My Mind</a><p><em>播放：47728</em></p></li>
+                    <li><a href="#"><img src="/images/IMG_5868.JPG" alt="Don Diablo"><br>Switch</a><p><em>播放：47728</em></p></li>
+                    <li><a href="#"><img src="/images/IMG_5869.JPG" alt="Don Diablo"><br>Back To U</a><p><em>播放：47728</em></p></li>
+                    <li><a href="#"><img src="/images/IMG_5870.JPG" alt="Don Diablo"><br>Blame</a><p><em>播放：47728</em></p></li>
+                    <li><a href="#"><img src="/images/IMG_5871.JPG" alt="Don Diablo"><br>Kiss Fight</a><p><em>播放：47728</em></p></li>
+                </ul>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </body>
+</html>

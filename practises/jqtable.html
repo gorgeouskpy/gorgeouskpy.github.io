@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Table</title>
+        <style>
+            body{
+                background-color: blanchedalmond;
+            }
+            .focus{
+                border:1px solid cadetblue;
+                background: #ffcccc;
+            }
+        </style>
+        <script src="/scripts/jquery.js"></script>
+        <script>
+            $().ready(function(){
+                $("input").bind("focus",function(event){
+                    event.preventDefault;
+                    $(this).addClass("focus");
+                })
+                .bind("blur",function(event){
+                    $(this).removeClass("focus");
+                })
+                var $comment = $("#comment");
+                $(".bigger").click(function(){
+                    if($comment.height() < 500){
+                        //重新设置高度，在原有的基础上加50
+                        $comment.animate({
+                            height:"+=50"
+                        },400);
+                    }
+                })
+                $(".smaller").click(function(){
+                    if($comment.height() >50){
+                        $comment.animate({
+                            height:"-=50"
+                        },400);
+                    }
+                })
+                $("#checkAll").click(function(){
+                    $('[name=items]:checkbox').attr('checked',true);
+                })
+                $("#checkNone").click(function(){
+                    $('[name=items]:checkbox').attr('checked',false);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form action="#" method="POST" id="RegForm">
+            <fieldset>
+                <legend>个人基本信息👤</legend>
+                <div>
+                    <lable for="username">名称</lable>
+                    <input id="username" type="text">
+                </div>
+                <div>
+                    <label for="passwd">密码</label>
+                    <input id="passwd" type="password">
+                </div>
+                <div>
+                    <lable for="info">备注</lable>
+                    <textarea id="info"></textarea>
+                </div>
+            </fieldset>
+        </form>
+        <form>
+            <div class="msg_caption">
+                <span class="bigger" title="放大编辑区域">放大</span>
+                <span class="smaller" title="缩小编辑区域">缩小</span>
+            </div>
+            <div>
+                <textarea id="comment" rows="8" cols="20">多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化多行文本变化</textarea>
+            </div>
+        </form>
+        <form>
+            你爱好的运动是：<br/>
+            <input type="checkbox" name="items" vlaue="football">足球⚽️
+            <input type="checkbox" name="items" vlaue="basketball">篮球🏀
+            <input type="checkbox" name="items" vlaue="pingpong">乒乓🏓️
+            <input type="checkbox" name="items" vlaue="golf">高尔夫⛳️
+            <input type="checkbox" name="items" vlaue="billiard">台球🎱
+            <input type="checkbox" name="items" vlaue="badmition">羽毛球🏸️
+            <br/>
+            <input type="button" id="checkAll" value=“全&nbsp&nbsp选”>
+            <input type="button" id="checkNone" value="全不选">
+            <input type="button" id="checkedRev" value="反选">
+            <input type="button" id="send" value="提交">
+        </form>
+    </body>
+</html>

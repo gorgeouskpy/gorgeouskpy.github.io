@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery简介</title>
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+            .tim{
+                width: 200px;
+                font-size: 18px;
+                border-bottom: 2px solid midnightblue;
+                background-color: chocolate;
+                color: midnightblue;
+                text-align: center;
+            }
+            .content{
+                width: 200px;
+                background-color: cornflowerblue;
+                color: midnightblue;
+                text-align: left;
+                text-indent: 2em;
+                font-size: 12px;
+                display: none;
+            }
+            .show{
+                display: flexbox;
+                width: 200px;
+                background-color: cornflowerblue;
+                color: midnightblue;
+                text-align: left;
+                text-indent: 2em;
+                font-size: 12px;
+            }
+            .PosBlock{
+                height: 100px;
+                width: 300px;
+                background-color: cornflowerblue;
+                position: fixed;
+                top: 50px;
+                right: 50px;
+            }
+        </style>
+        <script src="/scripts/jquery.js"></script>
+        <script>
+           $().ready(function(){
+               $(".tim").bind("mouseover",function(){
+//                  $(this).next().attr("class","show");
+                    $(this).next().slideDown(100);
+               })
+               $(".tim").bind("mouseout",function(){
+//                  $(this).next().attr("class","content");
+                    $(this).next().slideUp(100);
+               })
+               $("a").click(function(eventx){
+                alert(eventx.target);
+            })
+            $("body").bind("click",function fo(event){
+            var x,y;
+            x=event.clientX;
+            y=event.clientY;
+            $(".PosX").text(x);
+            $(".PosY").text(y);
+                setInterval(
+                getpos()   
+                , 100);
+                })//有问题的代码
+            function getpos(){
+                x=event.clientX;
+                y=event.clientY;
+                $(".PosX").text(x);
+                $(".PosY").text(y);
+            }
+
+               })
+               
+            
+        </script>
+    </head>
+    <body>
+        <div class="tim">什么是jQuery</div>
+        <div class="content">jQuery是继prototype之后有一个优秀的JavaScript库，它是一个由 John Resig 
+            创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，
+            极大地简化了JavaScript开发人员遍历html文档，操作DOM，处理事件，执行动画和开发Ajax。它独特而优雅的编程风格改变了
+            程序员的设计思路和编写程序的方式。
+        </div>
+        <p>按下以获得鼠标位置<p>
+        <a>按下以获得事件类型</a>
+        <div class="PosBlock">
+            x:<span class="PosX">PosX</span>
+            y:<span class="PosY">PosY</span>
+        </div>
+    </body>
+</html>
