@@ -7,8 +7,11 @@
         <link rel="icon" href="/icons/icon_logo.png">
         <script src="/scripts/jquery.js"></script>
         <script src="/scripts/datecount.js"></script>
+        <script src="/scripts/menu_of_texl.js"></script>
         <script>
-        $(document).ready(function(){printf();});//注意嵌入js代码不能和外部js文件放到同一个元素里
+        $(document).ready(function(){
+            printf();
+        });//注意嵌入js代码不能和外部js文件放到同一个元素里
         </script>
     </head>
     <body>
@@ -18,13 +21,14 @@
         </div>
         <div>
         <div class="box1">
-            <div class="textl">
-                <p>如何在GitHub上托管个人博客</p>
+            <div class="textbox">
+                <p id="textl">如何在GitHub上托管个人博客</p>
+                <p id="textl" class="son">如何在GitHub上托管个人博客</p>
+                <p id="textl" class="son">如何在GitHub上托管个人博客</p>
+                <p id="textl" class="son">如何在GitHub上托管个人博客</p>
+                <div class="clear"></div>
             </div>
             <br/>
-            <div class="textl">
-                <p>如何使用samba传输文件</p>
-            </div>
         </div>
             <div class="timer">
                 <p id="timer">这是timer</p>

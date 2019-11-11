@@ -10,7 +10,12 @@
                 border:1px solid cadetblue;
                 background: #ffcccc;
             }
+            .high{
+                color: red;
+                font-size: 10px;
+            }
         </style>
+        <link href="/styles/jquery-3.4.1.min.js.css">
         <script src="/scripts/jquery.js"></script>
         <script>
             $().ready(function(){
@@ -43,6 +48,25 @@
                 $("#checkNone").click(function(){
                     $('[name=items]:checkbox').attr('checked',false);
                 });
+                $("#checkedRev").click(function(){
+                    $("[name=items]:chexkbox").each(function(){
+                        this.checked=!this.checked;
+                    });
+                });
+                $("form :input.required").each(function(){
+                    var $required = $("<strong class='high'>*</strong>");
+                    $(this).parent().append($required);
+                });//创建一个小红点表示此选项为必填选项，并将其追加至input元素之后
+                $("form :input").blur(function(){
+                    var $parent = $(this).parent();
+                    //验证用户名
+                    if($(this).is("#usernamex")){
+                        if(this.value==""||this.value.length<=6){
+                        var eorroMsg = $("<span>请输入正确的情书💌</span>");
+                        $parent.append(eorroMsg);
+                        }
+                    }
+                })
             });
         </script>
     </head>
@@ -86,6 +110,24 @@
             <input type="button" id="checkNone" value="全不选">
             <input type="button" id="checkedRev" value="反选">
             <input type="button" id="send" value="提交">
+        </form>
+        <form method="POST" action="">
+            <div class="init">
+                <label for="usernamex">用户名：</label>
+                <input type="text" id="usernamex" class="required" />
+            </div class="init">
+            <div>
+                <lable for="email">&nbsp&nbsp&nbsp邮箱：</lable>
+                <input type="text" id="email" class="required" />
+            </div>
+            <div class="init">
+                <lable for="personinfo">个人资料</lable>
+                <input type="text" id="personinfo">
+            </div>
+            <div class="sub">
+                <input type="submit" value="提交" id="send" action="#">
+                <input type="reset" id="res">
+            </div>
         </form>
     </body>
 </html>

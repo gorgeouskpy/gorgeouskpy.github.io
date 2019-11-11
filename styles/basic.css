@@ -96,18 +96,22 @@ a{
     font-style: normal;
     font-size: 12px; 
 }
-.textl{
+#textl{
     text-align: center;
-    padding: 20px;
     padding-top: 30px;
-    height: 0;
-    margin:0;
+    height: 30px;
     font-size: 16px;
-    z-index: 88;
-    float: top;
     overflow-y: auto;
+    overflow-x: hidden;
     color: rgb(85, 63, 47);
-    overflow: hidden;
+}
+.textbox{
+    margin: 10px;
+    padding:25px;
+    padding-top: 0;
+    height: auto;
+    border-radius: 10px;
+    background: antiquewhite;
 }
 .textr{
     text-align: left;
@@ -139,4 +143,8 @@ a{
     line-height: 25px;
     height: auto;
     top:0;
+}
+.clear{
+    height:0;
+    clear:both;
 }
