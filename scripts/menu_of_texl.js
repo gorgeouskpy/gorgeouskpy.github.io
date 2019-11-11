@@ -7,12 +7,11 @@ $().ready(function(){
         
     });
     $(".textbox").click(function(){
-        if($(".son").is(":visible")){
-            $(".son").fadeOut(0);
+        if($(this).children(".father").siblings().is(":visible")){
+            $(this).children(".father").siblings().fadeOut(0);
         }
         else{
-            $(".son").fadeIn();
+            $(this).children(".father").siblings().fadeIn();
         }
     });
-    $(".textbox").click();
 });
