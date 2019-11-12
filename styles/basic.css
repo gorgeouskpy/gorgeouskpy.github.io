@@ -6,7 +6,7 @@
 }
 body{
     background-color: antiquewhite;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .toolbar{
     height: 50px;
@@ -60,15 +60,16 @@ iframe{
     height: 89.2%;
     overflow-x: hidden;
     background-color: burlywood;
+    box-shadow: inset 0 0 4px rgba(63, 63, 63, 0.5);
     border-radius: 10px;
-    box-shadow: 0,0,5px,grey;
 }
 .box2{
     margin: 5px;
     margin-right: 12px;
     margin-top: 55px;
     width: 73%;
-    height: 1800px;
+    box-shadow: inset 0 0 4px rgba(63, 63, 63, 0.5);
+    height: 732px;
     position: absolute;
     left: 25.5%;
     top: 0;
@@ -89,7 +90,7 @@ a{
     width: 100%;
     text-align: center;
     position: absolute;
-    top: 1860px;
+    top: 797px;
     left: 150px;
     color: rgba(94, 53, 53, 0.37);
     z-index: 999;
@@ -107,11 +108,21 @@ a{
 }
 .textbox{
     margin: 10px;
+    margin-bottom: -10px;
     padding:25px;
     padding-top: 0;
     height: auto;
     border-radius: 10px;
     background: antiquewhite;
+}
+.textbox2{
+    margin: 10px;
+    margin-bottom: -10px;
+    padding:25px;
+    padding-top: 0;
+    height: auto;
+    border-radius: 10px;
+    background: bisque;
 }
 .textr{
     text-align: left;

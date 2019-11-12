@@ -4,7 +4,11 @@
 */
 $().ready(function(){
     $(".textbox").mouseover(function(){
-        
+        $(this).addClass("textbox2");
+    });
+    $(".textbox").mouseout(function(){
+        $(this).removeClass();
+        $(this).addClass("textbox");
     });
     $(".textbox").click(function(){
         if($(this).children(".father").siblings().is(":visible")){
@@ -14,4 +18,5 @@ $().ready(function(){
             $(this).children(".father").siblings().fadeIn();
         }
     });
+    $(".textbox").click();
 });
