@@ -1,0 +1,403 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>Linux和Windows的双系统环境的搭建</title>
+<style>
+*{margin:0;padding:0}
+body{
+  min-width: 200px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px;
+
+	font-family:"Nunito","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;font-size:14px;background:#fff;color:#333}
+.markdown-body{line-height:1.5em;font-size:1.3em}
+h1{font-size:1.8em}
+h2{font-size:1.5em}
+h3{font-size:1.3em}
+a{text-decoration:none;outline-width:0;color:#258fb8;word-wrap: break-word; word-break: break-all;}
+a:hover{color:#2571B8}
+
+.markdown-body img.left,.markdown-body video.left{float:left;margin-right:1.5em}
+
+
+.markdown-body img.right, .markdown-body video.right{float:right;margin-left:1.5em}
+
+.markdown-body img.center,.markdown-body video.center{display:block;margin:0 auto 1.5em}
+
+.markdown-body img.left, .markdown-body video.left, .markdown-body img.right, .markdown-body video.right{margin-bottom:.8em}
+
+.alignleft{float:left}
+.alignright{float:right}
+.clearfix{*zoom:1}
+.clearfix:after{content:"";display:table;clear:both}
+
+
+.markdown-body h1{font-weight:300;line-height:35px;margin-bottom:20px}
+.markdown-body h1 a{color:#666}
+.markdown-body a:hover{text-decoration:underline}
+.markdown-body .more-link{display:block;margin-top:16px;padding-left:30px;position:relative}
+.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body iframe,.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6,.markdown-body .video-container{margin-top:20px}
+.markdown-body ul,.markdown-body ol,.markdown-body dl{margin-left:20px}
+.markdown-body ul ul,.markdown-body ul ol,.markdown-body ul dl,.markdown-body ol ul,.markdown-body ol ol,.markdown-body ol dl,.markdown-body dl ul,.markdown-body dl ol,.markdown-body dl dl{margin-top:0}
+.markdown-body strong{font-weight:bold}
+.markdown-body em{font-style:italic}
+.markdown-body p{margin-top:10px}
+.markdown-body h2{font-weight:300;border-bottom:1px solid #ddd;position:relative}
+.markdown-body h2:before{content:"";position:absolute;bottom:-2px;border-bottom:1px solid #fff;width:100%}
+.markdown-body img,.markdown-body video{max-width:100%;height:auto}
+.markdown-body blockquote{background:#ddd;border-left:5px solid #ccc;padding:15px 20px;margin-top:10px}
+.markdown-body blockquote>p:first-of-type{margin-top:0}
+.markdown-body iframe{border:none}
+.markdown-body table{background:#ddd;border:1px solid #ccc;border-spacing:0;margin-top:10px}
+.markdown-body table th{background:#ccc;padding:0 15px}
+.markdown-body table td{text-align:center}
+.markdown-body table tr:nth-of-type(2n){background:#d5d5d5}
+.markdown-body .caption{display:block;font-size:0.9em;color:#999;padding-left:25px;position:relative}
+.markdown-body .caption:before{content:"\f040";color:#ccc;font:1.3em FontAwesome;line-height:1.6em;position:absolute;left:0}
+.markdown-body .video-container{position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden}
+.markdown-body .video-container iframe,.markdown-body .video-container object,.markdown-body .video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}
+
+.markdown-body footer{padding:15px 0;border-top:1px solid #fff;text-align:center;font-size:0.9em}
+code,pre{background:#ddd;border:1px solid #ccc;font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace; font-size: 0.9em;}
+code{font-size:0.9em;padding:1px 3px;margin:0 3px}
+pre code{background:none;border:none;padding:0;margin:0}
+
+
+.markdown-body p{margin-top:10px}
+.markdown-body h2{font-size:1.3em;color:#333;margin-top:30px;font-weight:bold}
+.markdown-body h2::before{border-bottom:none}
+.markdown-body blockquote{border-left:5px solid #2571B8;background:#F7F7F7}
+.markdown-body blockquote p{margin-top:0px}
+.markdown-body table{line-height:1.2em}
+.markdown-body table td{text-align:left}
+
+
+.markdown-body pre{ background: none; border: none; padding: 0; margin: 4px 0px;}
+.markdown-body{text-align: left;}
+.markdown-body table th,.markdown-body table td{ padding: 4px;border-collapse: collapse; border:solid 1px #ddd;}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6{ line-height: 1.2em;}
+	
+.markdown-body{border: none;}
+.markdown-body	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+https://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+javascript */
+/**
+ * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
+ * @author Tim  Shedor
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  position: relative;
+  margin: .5em 0;
+  overflow: visible;
+  padding: 0;
+}
+pre[class*="language-"]>code {
+  position: relative;
+  border-left: 10px solid #358ccb;
+  box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
+  background-color: #fdfdfd;
+  background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+  background-size: 3em 3em;
+  background-origin: content-box;
+  background-attachment: local;
+}
+
+code[class*="language"] {
+  max-height: inherit;
+  height: inherit;
+  padding: 0 1em;
+  display: block;
+  overflow: auto;
+}
+
+/* Margin bottom to accomodate shadow */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: #fdfdfd;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  position: relative;
+  padding: .2em;
+  border-radius: 0.3em;
+  color: #c92c2c;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline;
+  white-space: normal;
+}
+
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
+  content: '';
+  z-index: -2;
+  display: block;
+  position: absolute;
+  bottom: 0.75em;
+  left: 0.18em;
+  width: 40%;
+  height: 20%;
+  max-height: 13em;
+  box-shadow: 0px 13px 8px #979797;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+:not(pre) > code[class*="language-"]:after,
+pre[class*="language-"]:after {
+  right: 0.75em;
+  left: auto;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7D8B99;
+}
+
+.token.punctuation {
+  color: #5F6364;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #c92c2c;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.function,
+.token.builtin,
+.token.inserted {
+  color: #2f9c0a;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.class-name {
+  color: #1990b8;
+}
+
+.token.regex,
+.token.important {
+  color: #e90;
+}
+
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.token.important {
+  font-weight: normal;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+  pre[class*="language-"]:before,
+  pre[class*="language-"]:after {
+    bottom: 14px;
+    box-shadow: none;
+  }
+
+}
+
+/* Plugin styles */
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before {
+  color: #e0d7d1;
+}
+
+/* Plugin styles: Line Numbers */
+pre[class*="language-"].line-numbers.line-numbers {
+  padding-left: 0;
+}
+
+pre[class*="language-"].line-numbers.line-numbers code {
+  padding-left: 3.8em;
+}
+
+pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows {
+  left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+pre[class*="language-"][data-line] {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+pre[data-line] code {
+  position: relative;
+  padding-left: 4em;
+}
+pre .line-highlight {
+  margin-top: 0;
+}
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+
+</style>
+<style>p{text-indent: 2em !important;}</style>
+<style> @media print{ code[class*="language-"],pre[class*="language-"]{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
+<h1 id="toc_0">Linux和Windows的双系统环境的搭建</h1>
+
+<h2 id="toc_1">reason why</h2>
+
+<p>因为期末的数电大作业要用到proteus这个软件的缘故，必须要用到Windows这个操作系统了，但同时我又是一个Linux的重度使用者，平时也会做一些关于lamp平台服务器搭建的学习，也不能舍弃Linux，看来Linux x Windows双系统是不能躲过了，今天下午我计划研究一下LinuxWindows双系统环境的搭建。<br/>
+由于一些原因，安装时应该先安装Windows，然后安装Linux。</p>
+
+<h2 id="toc_2">Windows的安装</h2>
+
+<p>其实这一部分也没什么好说的，但是也挺麻烦的，还是讲一讲吧！<br/>
+这里，不推荐Ghost安装，原因大家都懂，不懂也没干系，反正不推荐吧！<br/>
+首先，先去微软官网下载一个Windows 映像文件。(.iso)<br/>
+然后找到一个好用的光盘映像制作文件，利用U盘制作一个虚拟光盘映像。<br/>
+<img src="https://raw.githubusercontent.com/gorgeouskpy/img/master/002.png" alt="虚拟光盘映像的制作"/></p>
+
+<h3 id="toc_3">Oops!</h3>
+
+<p>竟然发现这样制作的虚拟映像文件竟然是只能用来给Windows系统的电脑重装系统！<br/>
+看来只能另想解决办法了。可借用别人的Windows在微软的官网下载一个映像制作工具，利用这个工具可以在U盘中制作虚拟镜像，而这个镜像可以直接用来安装系统。<a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO">微软官网</a><br/>
+制作完成后，进入bios界面，选择需要安装的系统所在的驱动器，就可以安装了！<br/>
+注意安装时，在磁盘分区的过程中，不要让Windows把整个的硬盘全部占满，要留一些空间剩余给Linux的安装！<br/>
+安装成功后，关机，再次进入bios界面。</p>
+
+<h2 id="toc_4">Linux的安装</h2>
+
+<p>同样下载合适的Linux distribution，利用一些虚拟镜像制作工具，将Linux的ISO文件烧入U盘，在bios界面中选择U盘启动（不要从硬盘启动！），经过几乎与Windows安装同样简单的过程，你就可以完成Linux的安装了！<br/>
+关机重启后会弹出一个界面，可以从这个界面选择操作系统，可以说是非常的方便呢！</p>
+
+<h1 id="toc_5">Summary</h1>
+
+<p>安装的过程说来简单，但整个过程我也是断断续续地装了一天，期间也遇到了不少麻烦。<br/>
+我对Windows系统也不太了解，但能感觉出来Windows对系统资源的占用实在是太高了。由于legend已经是一个非常老旧的设备了，在这里也不能提出更高的要求了。但是还是让人感觉到，Linux是多么优雅的操作系统呀！<br/>
+有什么问题欢迎联系<a href="mailto:root@gorgeouskpy.cn">root@gorgeouskpy.cn</a> 进行交流！</p>
+
+<h2 id="toc_6">若是在bios界面没有办法识别U盘怎么办？</h2>
+
+<p>这个问题给我带来了巨大的困扰！<br/>
+在装机之前其实legend是处于没有操作层面的状态的，也就是说我没有办法操作legend，但legend却可以成功开机。在这种情况下，没有办法通过破坏系统让系统无法开机的方法，强制让legend从U盘驱动器中启动的，所以我又重新安装了一个minimal setup的Linux，利用它的shell来将一些关键文件删除（主要是根目录下的usr和bin文件夹里的内容），强制让legend从装有Windows的U盘中进行boot来实施安装的！</p>
+
+</div></body>
+
+</html>

@@ -2,6 +2,15 @@
 	"folders": [
 		{
 			"path": "/Users/kpy/Desktop/Geek Repo/html"
+		},
+		{
+			"path": "/Users/kpy/Desktop/Geek Repo/www"
+		},
+		{
+			"path": "/Volumes/kpy/perl_preactise"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "html"
+	}
 }
